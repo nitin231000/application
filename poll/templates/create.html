@@ -1,0 +1,91 @@
+{% load widget_tweaks %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBSITE</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+</head>
+<body>
+    
+    <header>
+        <ul class="left-nav">
+            
+            <li> <a href="{% url 'home' %}">Logo</a></li>
+            
+        </ul>
+        <ul class="right-nav" style="margin-top:-.5%;">
+            
+            <li>  <a href="{% url 'home' %}">Home</a></li>
+            <li> <a href="{% url 'create' %}">Create</a></li>
+            
+        </ul>
+    </header>
+
+    <section style="margin-top:2%; margin-bottom:2%;">
+
+        <div class="row" style="line-height: 40px;box-sizing: border-box;border: groove;width: 45%;margin-left: 25%;">
+          <div class="col-lg-8 col-lg-offset-2">
+            
+             <div class="panel-heading"  style="text-align:center; margin: auto; line-height: 50px;width: 45%;background-color: cadetblue;" >
+              <h3 class="panel-title">Create A New Poll</h3>
+             </div> 
+             <form method="POST">
+                 {% csrf_token %}
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-group" style="
+                            margin-left: 20%;">
+                                <legend for="question">Enter Poll Question</legend>
+                                {% render_field form.question  style="width: 330px; height: 95px;"%}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <div>
+                                
+                               
+                               {% render_field form.option_one placeholder="option1" style="margin-left:5%; margin-right:5%;" %}
+                               
+                                {% render_field form.option_two placeholder="option2" style="margin-right:5%;"  %}
+                               
+                                {% render_field form.option_three placeholder="option3" %}
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <hr />
+                        <div class="col-lg-4">
+                            <button type="submit" class="btn btn-info" style="margin-left:45%;background-color: cadetblue;">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+             </form>
+       </div>
+      </div>
+       </section>  
+
+
+
+
+    <footer>
+        <div class="footer-text">
+           &copy; 2022 by Sharma
+        </div>
+      </footer>
+
+</body>
+</html>

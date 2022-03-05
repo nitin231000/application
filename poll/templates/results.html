@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBSITE</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+</head>
+<body>
+    
+    <header>
+        <ul class="left-nav">
+            
+            <li> <a href="{% url 'home' %}">Logo</a></li>
+            
+        </ul>
+        <ul class="right-nav" style="margin-top:-.5%;">
+            
+            <li>  <a href="{% url 'home' %}">Home</a></li>
+            <li> <a href="{% url 'create' %}">Create</a></li>
+            
+        </ul>
+    </header>
+
+
+    <section style="margin-top:2%; margin-bottom:2%;">
+
+        <div class="row" style="line-height: 40px;box-sizing: border-box;border: groove;width: 45%;margin-left: 25%;">
+          <div class="col-lg-8 col-lg-offset-2">
+            
+             <div class="panel-heading"  style="text-align:center; margin: auto; line-height: 50px;width: 45%;background-color: cadetblue;" >
+              <h3 class="panel-title">Poll Result</h3>
+             </div> 
+
+  
+             <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 style="padding:2%">{{poll.question}}</h2>
+                    </div>
+                </div><hr>
+
+                <ul class="list-group">
+                    <li class="list-group-item" style="margin-left: 2%;">{{ poll.option_one }} &mdash; <strong>{{poll.option_one_count}}</strong></li><hr>
+                    <li class="list-group-item" style="margin-left: 2%;">{{ poll.option_two }} &mdash; <strong>{{poll.option_two_count}}</strong></li><hr>
+                    <li class="list-group-item" style="margin-left: 2%;">{{ poll.option_three }} &mdash; <strong>{{poll.option_three_count}}</strong></li><hr>
+                </ul>
+    
+                <div class="panel-footer" style="background-color: cadetblue;">
+                    &nbsp;&nbsp;&nbsp;Total &mdash; <strong>{{poll.total}}</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <footer>
+        <div class="footer-text">
+           &copy; 2022 by Sharma
+        </div>
+      </footer>
+
+</body>
+</html>

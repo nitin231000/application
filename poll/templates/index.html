@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBSITE</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+</head>
+<body>
+    
+    <header style="background-color:crimson;">
+        <ul class="left-nav">
+            
+            <li> <a href="{% url 'home' %}">Logo</a></li>
+            
+        </ul>
+        <ul class="right-nav" style="margin-top:-.5%;">
+            
+            <li>  <a href="{% url 'home' %}">Home</a></li>
+            <li> <a href="{% url 'create' %}">Create</a></li>
+            
+        </ul>
+    </header>
+
+    <section style="margin-top:2%; margin-bottom:2%;">
+
+    <div class="row" style="line-height: 40px;box-sizing: border-box;border: groove;width: 45%;margin-left: 25%;">
+      <div class="col-lg-8 col-lg-offset-2">
+        
+         <div class="panel-heading"  style="text-align:center; margin: auto; line-height: 50px;width: 45%;background-color: cadetblue;" >
+          <h3 class="panel-title" style="margin-left:19%">Available Polls</h3>
+         </div> 
+       <hr>
+        <ul class="list-group" style="text-align:center;">
+          {% for poll in polls %}
+          <li class="list-group-item"> 
+            <b style="margin-right:35%">{{ poll.question }}</b>  &nbsp;&nbsp;
+            <a href="{% url 'vote' poll.id %}" class="btn btn-info" style="border: double;">Vote</a> &nbsp;
+            <a href="{% url 'results' poll.id %}" class="btn btn-default" style="border: double;">Results</a> &nbsp;
+          </li><hr>
+          {% endfor %}
+        </ul>  
+   </div>
+  </div>
+   </section>  
+
+      <footer style="background-color:crimson;">
+        <div class="footer-text">
+           &copy; 2022 by Sharma
+        </div>
+      </footer>
+
+</body>
+</html>
